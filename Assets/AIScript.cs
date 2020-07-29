@@ -22,7 +22,6 @@ public class AIScript : MonoBehaviour
         objectWidth = transform.GetComponent<SpriteRenderer>().bounds.extents.x;
         objectHeight = transform.GetComponent<SpriteRenderer>().bounds.extents.y;
 
-        //Debug.Log(boundY.x + "   " + boundY.y + "    " + objectHeight);
     }
 
     // Update is called once per frame
@@ -43,12 +42,12 @@ public class AIScript : MonoBehaviour
             {
                 transform.Translate(Vector3.up * speed * Time.deltaTime);
             }
+            else
+            {
+                transform.Translate(Vector3.up * speed * Time.deltaTime);
+            }
         }
 
-        //if (transform.position.y > boundY.y)
-        //{
-        //    transform.position = new Vector3(transform.position.x, boundY.y, 0);
-        //}
     }
 
     void LateUpdate()

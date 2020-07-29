@@ -24,7 +24,7 @@ public class PlayerControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var vel = rb2d.velocity;
+        Vector3 vel = rb2d.velocity;
         if (Input.GetKey(moveUp))
         {
             vel.y = speed;
@@ -39,7 +39,7 @@ public class PlayerControls : MonoBehaviour
         }
         rb2d.velocity = vel;
 
-        var pos = transform.position;
+        Vector3 pos = transform.position;
         
     }
 
