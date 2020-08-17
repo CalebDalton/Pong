@@ -10,7 +10,6 @@ public class BallControl : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        rb2d.mass = .025f;   //This is reseting to .01 for some reason
         Invoke("GoBall", 2);
         InvokeRepeating("SpeedUp", 1.0f, 5.0f);
     }
@@ -23,7 +22,7 @@ public class BallControl : MonoBehaviour
 
     void SpeedUp()
     {
-        rb2d.mass -= .015f;
+        rb2d.mass -= .001f;
         Debug.Log(rb2d.mass);
     }
 
@@ -32,23 +31,13 @@ public class BallControl : MonoBehaviour
         float rand = UnityEngine.Random.Range(0, 2);
         int randX;
         int randY;
-        //float randDir;
 
-        //do
-        //{
-        //    randDir = UnityEngine.Random.Range(-20, 20);
-        //} while (randDir == 0);
         randX = UnityEngine.Random.Range(10, 21);
         do {
             randY = UnityEngine.Random.Range(-21, 21);
         } while (randY == 0);
 
         Debug.Log(randX + ", " + randY);
-
-        //if (rand == 0)
-        //    transform.position = new Vector3(randX, randY, 0);
-        //else
-        //    transform.position = new Vector3(randX * -1, randY, 0);
 
         if (rand == 0)
         {
@@ -64,6 +53,7 @@ public class BallControl : MonoBehaviour
     {
         rb2d.velocity = Vector2.zero;
         transform.position = Vector2.zero;
+        rb2d.mass = .025f;
     }
 
     void RestartGame()

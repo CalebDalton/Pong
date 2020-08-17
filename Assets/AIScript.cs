@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.UIElements;
 using UnityEngine;
 
 public class AIScript : MonoBehaviour
 {
-    public float speed = 20.0f;
+    public float speed = 10.0f;
     Transform Ball;
     Transform Ai;
 
@@ -27,27 +28,52 @@ public class AIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float time = 0.0f;
+        float endTime = 5.0f;
+
         var vel = rb2d.velocity;
 
         Ball = GameObject.FindGameObjectWithTag("Ball").transform;
         rb2d = Ball.GetComponent<Rigidbody2D>();
 
-        if(rb2d.velocity.x < 0)
-        {
-            if(Ball.position.y < this.transform.position.y)
+        time += Time.deltaTime;
+
+        while (time != endTime) {
+            if (rb2d.velocity.x < 0)
             {
-                transform.Translate(Vector3.down * speed * Time.deltaTime);
-            }
-            else if(Ball.position.y > this.transform.position.y)
-            {
-                transform.Translate(Vector3.up * speed * Time.deltaTime);
-            }
-            else
-            {
-                transform.Translate(Vector3.up * speed * Time.deltaTime);
+                if (Ball.position.y < this.transform.position.y)
+                {
+                    transform.Translate(Vector3.down * speed * Time.deltaTime);
+                }
+                else if (Ball.position.y > this.transform.position.y)
+                {
+                    transform.Translate(Vector3.up * speed * Time.deltaTime);
+                }
+                else
+                {
+                    transform.Translate(Vector3.up * speed * Time.deltaTime);
+                }
             }
         }
 
+        while(time == endTime)
+        {
+
+        }
+    }
+
+    void BadAI()
+    {
+        if (this.transform.position.y >= 0)
+        {
+            transform.Translate(Vector3.down * speed * Time.deltaTime);
+            Debug.Log(this.transform.position + "Going Down");
+        }
+        else
+        {
+            transform.Translate(Vector3.up * speed * Time.deltaTime);
+            Debug.Log(this.transform.position + "Going Up");
+        }
     }
 
     void LateUpdate()
