@@ -14,15 +14,9 @@ public class BallControl : MonoBehaviour
         InvokeRepeating("SpeedUp", 1.0f, 5.0f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void SpeedUp()
     {
-        rb2d.mass -= .001f;
+        rb2d.mass -= .002f;
         Debug.Log(rb2d.mass);
     }
 
@@ -32,9 +26,9 @@ public class BallControl : MonoBehaviour
         int randX;
         int randY;
 
-        randX = UnityEngine.Random.Range(10, 21);
+        randX = UnityEngine.Random.Range(10, 17);
         do {
-            randY = UnityEngine.Random.Range(-21, 21);
+            randY = UnityEngine.Random.Range(-17, 17);
         } while (randY == 0);
 
         Debug.Log(randX + ", " + randY);

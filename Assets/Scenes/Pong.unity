@@ -283,9 +283,10 @@ GameObject:
   - component: {fileID: 888360958}
   - component: {fileID: 888360957}
   - component: {fileID: 888360959}
+  - component: {fileID: 888360960}
   m_Layer: 0
   m_Name: Red_Paddle
-  m_TagString: Ai
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -416,6 +417,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveUp: 273
   moveDown: 274
+  speed: 10
+--- !u!114 &888360960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888360954}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2771d95ee3820bc4cb4878cd9c9db073, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   speed: 10
 --- !u!1 &1015959180
 GameObject:
@@ -594,7 +608,7 @@ GameObject:
   - component: {fileID: 1336401564}
   m_Layer: 0
   m_Name: Blue_Paddle
-  m_TagString: Player
+  m_TagString: Ai
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
